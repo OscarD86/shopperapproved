@@ -1,0 +1,7 @@
+<script type="text/javascript">
+var sa_values = { "site":XXXXX }; sa_values['token']="XXXXX";  
+function saLoadScript(src) { var js = window.document.createElement("script"); 
+js.src = src; js.type = "text/javascript"; document.getElementsByTagName("head")[0].appendChild(js); } 
+var d = new Date(); if (d.getTime() - 172800000 > 1483501530000) saLoadScript("//www.shopperapproved.com/thankyou/rate/XXXXX.js"); 
+else saLoadScript("//direct.shopperapproved.com/thankyou/rate/XXXXX.js?d=" + d.getTime()); 
+</script>
