@@ -1,0 +1,33 @@
+<!-- ShopperApproved.com START -->
+<!---Code For Product Listing--->
+<script type="text/javascript">
+var sa_products = {};
+var itemtitle;
+{% for line_item in line_items %}
+itemtitle = (function () {/*{{ line_item.title }}*/}).toString().match(/[^]*\/\*([^]*)\*\/\}$/)[1];
+sa_products['{{ line_item.sku }}'] = itemtitle;
+{% endfor %}
+</script>
+<!----end Code For Product Listing-->
+<script type="text/javascript">
+    var sa_values ={  "site":XXXXX, "token":"XXXXX", 'orderid':'', 'name':'', 'email':''};
+    var firstName = Shopify.checkout['billing_address']['first_name'];
+    var lastName = Shopify.checkout['billing_address']['last_name'];
+    var email=Shopify.checkout['email'];
+    if(sa_values['orderid']!=undefined) sa_values.orderid='{{ order_number }}';
+    if(sa_values['name']!=undefined) sa_values.name=firstName+' '+lastName;
+    if(sa_values['email']!=undefined) sa_values.email=email;
+    function saLoadScript(src) { var js = window.document.createElement("script"); 
+    js.src = src; js.type = "text/javascript"; document.getElementsByTagName("head")[0].appendChild(js); } 
+    var d = new Date(); if (d.getTime() - 172800000 > 1477399567000) 
+    saLoadScript("//www.shopperapproved.com/thankyou/rate/XXXXX.js"); 
+    else saLoadScript("//direct.shopperapproved.com/thankyou/rate/XXXXX.js?d=" + d.getTime());
+</script>
+<style>
+#shopper_approved input[type="radio"] {
+    float: none !important;
+    opacity: 1 !important;
+    -webkit-appearance: radio !important;
+}
+</style>
+<!-- ShopperApproved.com END -->
